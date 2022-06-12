@@ -10,6 +10,7 @@ class Admin::SessionsController < Devise::SessionsController
     session = Admin.new(admin_params)
     session.save
     redirect_to '/admin'
+
   end
 
   def destroy

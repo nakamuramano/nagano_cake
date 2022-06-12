@@ -2,6 +2,15 @@
 
 class Public::SessionsController < Devise::SessionsController
   before_action :costomer_state, only: [:create]
+
+  def new
+  end
+
+  def create
+  end
+
+  def destroy
+  end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
