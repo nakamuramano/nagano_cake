@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :addresses, class_name: "Public::Address"
   devise_for :customers, skip: [:passwords], controllers:{
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   devise_scope :customers do
     get '/about', to: "public/homes#about"
     get '/items', to: "public/items#index"
+    get '/', to: "public/homes#top", as: :root
   end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers:{
@@ -18,6 +20,10 @@ Rails.application.routes.draw do
   get '/admin/items', to: 'admin/items#index'
   get '/admin/customers', to: 'admin/customers#index'
   get '/admin/genres', to: 'admin/genres#index'
+  post '/admin/genres', to: 'admin/genres#create'
+  get '/admin/genres/:id/edit', to: '/admin/genres/:id/edit#edit'
+  patch '/admin/genres/:id', to: '/admin/genres/:id#update'
+
   patch '/admin/orders/:id', to: 'admin/orders#update'
 end
 
