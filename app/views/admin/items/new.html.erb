@@ -1,0 +1,24 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <%= form_with model: @item, url: admin_items_new_path do |f| %>
+        <span>商品画像</span>
+        <%= f.file_field :image, accept: "image/*" %>
+        
+        <span>商品名</span>
+        <%= f.text_field :name, placeholder: "商品名" %>
+        
+        <span>商品説明</span>
+        <%= f.text_area :introduction, placeholder: "ここに説明文を記述します" %>
+        
+        <span>ジャンル</span>
+        <%= f.label :, '性別' %>
+    　　　<%= f.select :sex, {'男性': 1, '女性': 2}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+        
+        
+      
+      
+      
+    </div>
+  </div>
+</main>

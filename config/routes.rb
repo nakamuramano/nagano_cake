@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :addresses, class_name: "Public::Address"
   devise_for :customers, skip: [:passwords], controllers:{
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -19,11 +18,15 @@ Rails.application.routes.draw do
   devise_scope :admin do
   get '/admin', to: 'admin/homes#top'
   get '/admin/items', to: 'admin/items#index'
+  get '/admin/items/new', to: 'admin/items#new'
+  post '/admin/items', to: 'admin/items#create'
+  get '/admin/items/:id', to: 'admin/items#show', as: :admin_items_show
   get '/admin/customers', to: 'admin/customers#index'
   get '/admin/genres', to: 'admin/genres#index'
   post '/admin/genres', to: 'admin/genres#create'
-  get '/admin/genres/:id/edit', to: 'admin/genres#edit'
-  patch '/admin/genres/:id', to: 'admin/genres#update'
+  get '/admin/genres/:id/edit', to: 'admin/genres#edit', as: :admin_edit
+  patch '/admin/genres/:id', to: 'admin/genres#update', as: :admin_update
+
 
   patch '/admin/orders/:id', to: 'admin/orders#update'
 end

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  before_action :costomer_state, only: [:create]
+  #before_action :costomer_state, only: [:create]
 
-  def new
+  def ne
   end
 
   def create
