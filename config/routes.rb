@@ -15,14 +15,15 @@ Rails.application.routes.draw do
     sessions: "admin/sessions",
   }
 
+
   devise_scope :admin do
   get '/admin', to: 'admin/homes#top'
   get '/admin/items', to: 'admin/items#index'
   get '/admin/customers', to: 'admin/customers#index'
   get '/admin/genres', to: 'admin/genres#index'
   post '/admin/genres', to: 'admin/genres#create'
-  get '/admin/genres/:id/edit', to: '/admin/genres/:id/edit#edit'
-  patch '/admin/genres/:id', to: '/admin/genres/:id#update'
+  get '/admin/genres/:id/edit', to: 'admin/genres#edit'
+  patch '/admin/genres/:id', to: 'admin/genres#update'
 
   patch '/admin/orders/:id', to: 'admin/orders#update'
 end
