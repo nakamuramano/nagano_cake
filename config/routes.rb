@@ -22,12 +22,12 @@ Rails.application.routes.draw do
   post '/admin/items', to: 'admin/items#create'
   get '/admin/items/:id', to: 'admin/items#show', as: :admin_items_show
   get '/admin/items/:id/edit', to: 'admin/items#edit', as: :admin_items_edit
-  patch '/admin/items/:id', to: 'admin/items#update'
+  patch '/admin/items/:id', to: 'admin/items#update', as: :admin_items_update
   get '/admin/customers', to: 'admin/customers#index'
   get '/admin/genres', to: 'admin/genres#index'
   post '/admin/genres', to: 'admin/genres#create'
-  get '/admin/genres/:id/edit', to: 'admin/genres#edit', as: :admin_edit
-  patch '/admin/genres/:id', to: 'admin/genres#update', as: :admin_update
+  get '/admin/genres/:id/edit', to: 'admin/genres#edit', as: :admin_genres_edit
+  patch '/admin/genres/:id', to: 'admin/genres#update', as: :admin_genres_update
 
 
   patch '/admin/orders/:id', to: 'admin/orders#update'
