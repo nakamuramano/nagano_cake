@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get '/admin/items/:id/edit', to: 'admin/items#edit', as: :admin_items_edit
   patch '/admin/items/:id', to: 'admin/items#update', as: :admin_items_update
   get '/admin/customers', to: 'admin/customers#index'
+  get '/admin/customers/:id', to: 'admin/customers#show'
+  get '/admin/customers/:id/edit', to: 'admin/customers#edit'
   get '/admin/genres', to: 'admin/genres#index'
   post '/admin/genres', to: 'admin/genres#create'
   get '/admin/genres/:id/edit', to: 'admin/genres#edit', as: :admin_genres_edit
