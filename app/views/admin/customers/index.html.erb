@@ -1,1 +1,26 @@
-<h1>index</h1>
+<main>
+  <div class="container">
+    <dev class="row">
+      <h4>会員一覧</h4>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <td scope="col">会員ID</td>
+              <td scope="col">氏名</td>
+              <td scope="col">メールアドレス</td>
+            </tr>
+          </thead>
+        <tbody>
+       <% @admin_customer.each do |customer| %>
+     <tr>
+      <th scope="row"><%= customer.id %></th>
+      <td><%= customer.last_name %><%= customer.first_name %></td>
+      <td><%= customer.email %></td>
+    </tr><% end %>
+  </tbody>
+</table>
+   <%= paginate @admin_customer %>
+          </dev>
+   </div>
+</main>

@@ -1,0 +1,55 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <h4><%= @admin_customer.last_name %><%= @admin_customer.first_name %></h4>
+      
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td>会員ID</td>
+            <td><%= @admin_customer.id %></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>氏名</td>
+            <td><%= @admin_customer.last_name %><%= @admin_customer.first_name %></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>フリガナ</td>
+            <td>
+              <%= @admin_customer.last_name_kana %><%= @admin_customer.first_name_kana %></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>郵便番号</td>
+            <td><%= @admin_customer.postal_code %></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>住所</td>
+            <td><%= @admin_customer.address %></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>電話番号</td>
+            <td><%= @admin_customer.telephone_number %></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @admin_customer.email%></td>
+          </tr>
+        </tbody>
+      </table>
+       <%= link_to '編集', admin_customer_edit_path(@item.id), class: "btn btn-success" %>
+
+    </div>
+  </div>
+</main>
