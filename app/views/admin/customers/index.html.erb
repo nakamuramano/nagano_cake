@@ -9,14 +9,19 @@
               <td scope="col">会員ID</td>
               <td scope="col">氏名</td>
               <td scope="col">メールアドレス</td>
+              <td scope="col">ステータス</td>
             </tr>
           </thead>
         <tbody>
        <% @admin_customer.each do |customer| %>
      <tr>
-      <th scope="row"><%= customer.id %></th>
-      <td><%= customer.last_name %><%= customer.first_name %></td>
+      <td scope="row"><%= customer.id %></td>
+      <td><%= link_to  admin_customer_show_path(customer.id) do %>
+            <%= customer.last_name %><%= customer.first_name %>
+          <% end %>
+      </td>
       <td><%= customer.email %></td>
+      <td><%= customer.is_active %></td>
     </tr><% end %>
   </tbody>
 </table>

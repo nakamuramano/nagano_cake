@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   devise_scope :customers do
     get '/about', to: "public/homes#about"
     get '/items', to: "public/items#index"
+    get '/cart_items', to: "public/cart_items#index"
+    get 'customers/my_page', to: "public/customers#show"
     get '/', to: "public/homes#top", as: :root
   end
 
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
 
 
   devise_scope :admin do
-  get '/admin', to: 'admin/homes#top'
+  get '/admin', to: 'admin/homes#top', as: :admin
   get '/admin/items', to: 'admin/items#index'
   get '/admin/items/new', to: 'admin/items#new'
   post '/admin/items', to: 'admin/items#create'
@@ -24,8 +26,9 @@ Rails.application.routes.draw do
   get '/admin/items/:id/edit', to: 'admin/items#edit', as: :admin_items_edit
   patch '/admin/items/:id', to: 'admin/items#update', as: :admin_items_update
   get '/admin/customers', to: 'admin/customers#index'
-  get '/admin/customers/:id', to: 'admin/customers#show'
-  get '/admin/customers/:id/edit', to: 'admin/customers#edit', as: :admin_customer_edit_path
+  get '/admin/customers/:id', to: 'admin/customers#show', as: :admin_customer_show
+  get '/admin/customers/:id/edit', to: 'admin/customers#edit', as: :admin_customer_edit
+  patch '/admin/customers/:id', to: 'admin/customers#update', as: :admin_customer_update
   get '/admin/genres', to: 'admin/genres#index'
   post '/admin/genres', to: 'admin/genres#create'
   get '/admin/genres/:id/edit', to: 'admin/genres#edit', as: :admin_genres_edit
