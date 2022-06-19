@@ -2,7 +2,7 @@
 
 class Public::SessionsController < Devise::SessionsController
 
-  before_action :customer_state, only: [:create]
+  #before_action :customer_state, only: [:create]
 
   #protected
 

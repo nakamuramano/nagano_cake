@@ -50,7 +50,11 @@
         <tbody>
           <tr>
             <td>会員ステータス</td>
-            <td><%= @admin_customer.is_active%></td>
+            <% if @admin_customer.is_active? %>
+              <td class="text-success">有効</td>
+            <% else %>
+              <td class="text-secondary">退会</td>
+            <% end %>
           </tr>
         </tbody>
       </table>

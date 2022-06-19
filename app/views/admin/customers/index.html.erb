@@ -13,16 +13,21 @@
             </tr>
           </thead>
         <tbody>
-       <% @admin_customer.each do |customer| %>
-     <tr>
-      <td scope="row"><%= customer.id %></td>
-      <td><%= link_to  admin_customer_show_path(customer.id) do %>
-            <%= customer.last_name %><%= customer.first_name %>
-          <% end %>
-      </td>
-      <td><%= customer.email %></td>
-      <td><%= customer.is_active %></td>
-    </tr><% end %>
+      <% @admin_customer.each do |customer| %>
+         <tr>
+          <td scope="row"><%= customer.id %></td>
+          <td><%= link_to  admin_customer_show_path(customer.id) do %>
+                <%= customer.last_name %><%= customer.first_name %>
+              <% end %>
+          </td>
+          <td><%= customer.email %></td>
+            <% if customer.is_active? %>
+              <td class="text-success">有効</td>
+            <% else %>
+              <td class="text-secondary">退会</td>
+            <% end %>
+          </tr>
+      <% end %>
   </tbody>
 </table>
    <%= paginate @admin_customer %>
