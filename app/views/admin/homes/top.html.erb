@@ -1,39 +1,24 @@
 
 <main>
-<h3>商品一覧</h3>
+<h4>注文履歴一覧</h4>
 
 <table class="table table-borderless">
   <thead>
     <tr>
-      <th scope="col">商品ID</th>
-      <th scope="col">商品価格</th>
-      <th scope="col">税込価格</th>
-      <th scope="col">ジャンル</th>
-      <th scope="col">ステータス</th>
+      <th scope="col">購入日時</th>
+      <th scope="col">購入者</th>
+      <th scope="col">注文個数</th>
     </tr>
   </thead>
+  <%= @orders.each do |order| %>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>sssssssssssssss</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
+      <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+      <td><%= order.name %></td>
+      <td><%= order.order_details.amount %></td>
     </tr>
   </tbody>
+  <% end %>
 </table>
 
 </main>

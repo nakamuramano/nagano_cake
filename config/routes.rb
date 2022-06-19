@@ -33,9 +33,7 @@ Rails.application.routes.draw do
   post '/admin/genres', to: 'admin/genres#create'
   get '/admin/genres/:id/edit', to: 'admin/genres#edit', as: :admin_genres_edit
   patch '/admin/genres/:id', to: 'admin/genres#update', as: :admin_genres_update
-
-
-  patch '/admin/orders/:id', to: 'admin/orders#update'
+  get '/admin/orders/:id', to: 'admin/orders#show', as: :admin_order_show
 end
 
 
