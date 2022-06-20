@@ -1,13 +1,8 @@
 class Admin::HomesController < ApplicationController
 
   def top
-    @orders = Order.all
+    @orders = Order.page(params[:page])
   end
-  
-  def show
-    @order = Order.find(params[:id])
-  end
-  
-  private
+
 
 end
