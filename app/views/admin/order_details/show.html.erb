@@ -19,52 +19,53 @@
             <tr>
               <th scope="row">配送先</th>
               <td>
-                <%= @order_detail.order.postal_code %>
-                <%= @order_detail.order.address %>
+                <%= @order_detail.orders.postal_code %>
+                <%= @order_detail.orders.address %>
               </td>
             </tr>
             <tr>
               <th scope="row">支払方法</th>
-              <td><%= @order_detail.order.payment_method %></td>
+              <td><%= @order_detail.orders.payment_method %></td>
             </tr>
           </tbody>
         </table>
-        
+
         <table class="table table-borderless">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-
-      <thead class="thead-light">
-      </thead>
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">商品名</th>
+              <th scope="col">単価（税込）</th>
+              <th scope="col">数量</th>
+              <th scope="col">小計</th>
+           </tr>
+          </thead>
+          <tbody>
+            <% @order.each do |order| %>
+              <tr>
+                <td><%= order.genre.name %></td>
+                <td><%= order.tax_included_price %></td>
+                <td><%= order.amount %></td>
+                <td><%= order.items.subtotal.to_s(:delimited) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <th scope="row">商品合計</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">送料</th>
+              <td><%= @order_detail.order.post_age %></td>
+            </tr>
+            <tr>
+              <th scope="row">請求金額合計</th>
+              <th colspan="2"><%= @order_detail.total_payment %></th>
+            </tr>
+          </tbody>
+        </table>
     </div>
   </div>
 </main>
