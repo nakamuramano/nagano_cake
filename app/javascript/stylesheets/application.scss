@@ -1,2 +1,36 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+* {
+  margin:  0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  border: solid 1px #000;
+  padding: 10px 72px;
+  text-decoration: none;
+  color: #000000;
+}
+
+#navbarNav ul{
+  display: flex;
+  width: 50%;
+}
+
+#navbarNav ul li{
+  flex: 1 1 0%;
+  display: block;
+}
+
+body{
+    border: solid 1px #000;
+    width: 98%;
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 755px;
+}
+
+
+

@@ -1,34 +1,23 @@
-
-
-<main>
-  <div class="container">
+<main　style="height: 200px">
+<div class="container mt-5">
   <div class="row">
-
-<h3><strong>管理者</strong>ログイン</h3>
-
-  <div class="container">
-
-
-<%= form_with model: @admin, url: new_admin_session_path do |f| %>
-  <div class="field">
-    <span>メールアドレス</span>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <span>パスワード</span>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div>
-<% end %>
-
-<%= render "admin/shared/links" %>
-  </div>
-</div>
+    <div  class="mx-auto">
+      <h3><strong>管理者</strong>ログイン</h3>
+        <%= form_with model: @admin, url: new_admin_session_path do |f| %>
+          <div class="field">
+            <span>メールアドレス</span>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+          <div class="field">
+            <span>パスワード</span>
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+          <div class="actions">
+            <%= f.submit "ログイン" %>
+          </div>
+        <% end %>
+        <%= render "admin/shared/links" %>
+    </div>
   </div>
 </div>
 </main>
