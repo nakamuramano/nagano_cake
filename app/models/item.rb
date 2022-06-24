@@ -13,4 +13,8 @@ class Item < ApplicationRecord
   def subtotal
     item.with_tax_price*amount
   end
+
+  def get_image
+    image.variant(resize_to_limit: [50,50]).processed
+  end
 end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   }
 
   devise_scope :customers do
+    get '/', to: "public/homes#top"
     get '/about', to: "public/homes#about"
     get '/items', to: "public/items#index"
     get '/cart_items', to: "public/cart_items#index"
