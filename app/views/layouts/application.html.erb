@@ -39,6 +39,7 @@
               </li>
 
             <% elsif customer_signed_in? %>
+            ようこそ、<%= current_customer.last_name %>さん！
 
               <li class="nav-item">
                 <%= link_to "マイページ", customers_my_page_path, class: "btn btn-outline-secondary" %>
