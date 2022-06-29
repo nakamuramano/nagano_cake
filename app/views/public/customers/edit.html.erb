@@ -1,6 +1,8 @@
-  <h5>会員情報編集</h5>
-
-  <%= form_with model: @customer, url: customers_path, method: :patch do |f| %>
+<main>
+  <div class="container">
+    <div class="row">
+      <h5>会員情報編集</h5>
+        　<%= form_with model: @customer, url: customer_path, method: :patch do |f| %>
    <table class="table table-borderless">
 
       <tbody>
@@ -44,10 +46,14 @@
         </tr>
       </tbody>
         <tr>
+          <td></td>
           <td><%= f.submit "更新を保存", class: "btn btn-success" %></td>
-          <td><</td>
         </tr>
         </tbody>
        </table>
 
 　　<% end %>
+
+    </div>
+  </div>
+</main>

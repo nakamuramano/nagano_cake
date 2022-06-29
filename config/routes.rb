@@ -9,8 +9,14 @@ Rails.application.routes.draw do
     get '/about', to: "public/homes#about"
     get '/items', to: "public/items#index"
     get '/cart_items', to: "public/cart_items#index"
-    get 'customers/my_page', to: "public/customers#show"
+    get '/customers/my_page', to: "public/customers#show"
+    get '/customers/edit', to: "public/customers#edit", as: :public_customer_edit
+    patch '/customers', to: "public/customers#update"
+    get '/customers/unsubscribe', to: "public/customers#unsubscribe"
+    patch '/customers/withdraw',to: "public/customers#withdraw"
     get '/', to: "public/homes#top", as: :root
+    get 'addresses', to: "public/addresses#index"
+    get '/orders', to: "public/orders#index"
   end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers:{
