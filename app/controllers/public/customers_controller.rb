@@ -11,9 +11,4 @@ class Public::CustomersController < ApplicationController
   def withdraw
   end
 
-  private
-
-  def customer_params
-  end
-
 end

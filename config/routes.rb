@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     patch '/customers/withdraw',to: "public/customers#withdraw"
     get '/', to: "public/homes#top", as: :root
     get 'addresses', to: "public/addresses#index"
+    get '/addresses/:id/edit', to: "public/addresses#edit", as: :public_address_edit
+    post '/addresses', to: "public/addresses#create"
+    patch '/addresses/:id', to: "public/addresses#update"
+    delete '/addresses/:id', to: "public/addresses#destroy", as: :public_address_destroy
     get '/orders', to: "public/orders#index"
   end
 
