@@ -3,7 +3,8 @@ class Item < ApplicationRecord
   validates :is_active, inclusion: { in: [true, false] }
   belongs_to :genre
 
-  has_many :carat_items, dependent: :destroy
+
+  has_many :cart_items, dependent: :destroy
   has_many :order_details, dependent: :destroy
 
   def with_tax_price

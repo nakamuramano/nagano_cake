@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/', to: "public/homes#top"
     get '/about', to: "public/homes#about"
     get '/items', to: "public/items#index"
+    get '/item/:id', to: "public/items#show", as: :public_item_show
     get '/cart_items', to: "public/cart_items#index"
     get '/customers/my_page', to: "public/customers#show"
     get '/customers/edit', to: "public/customers#edit", as: :public_customer_edit

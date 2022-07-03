@@ -1,0 +1,11 @@
+<main>
+  <div class="container">
+    <%= image_tag @item.get_image(200,200) %>
+    <%= @item.name %></br>
+    <%= @item.introduction %></br>
+   ¥<%= @item.with_tax_price.to_s(:delimited) %></br>
+
+  <%= form_with model: @cart_item, url: '/cart_items', method: :post do |f| %>
+  <%= f.select :amount,] { include_blank: '選択してください'} %><br>
+  </div>
+</main>
