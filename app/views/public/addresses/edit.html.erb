@@ -1,0 +1,26 @@
+<main>
+  <div class="container">
+    <h4>配送先編集</h4>
+    <table class="table table-borderless">
+  <tbody>
+    <tr>
+      <td>郵便番号(ハイフンなし)</td>
+      <td><%= @address.postal_code %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <td><%= @address.placeholder %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>宛名</td>
+      <td><%= @address.name%></td>
+      <td><%= f.submit '更新内容を保存', class: "btn btn-success" %></td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
+
+  </div>
+</main>

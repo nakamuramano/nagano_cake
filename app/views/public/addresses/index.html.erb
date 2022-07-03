@@ -11,7 +11,7 @@
     </tr>
     <tr>
       <td>住所</td>
-      <td><%= f.text_area :address, placeholder: "東京都渋谷区代々木神園町0-0" %></td>
+      <td><%= f.text_area :address,  placeholder: "東京都渋谷区代々木神園町0-0" %></td>
       <td></td>
     </tr>
     <tr>
@@ -35,9 +35,9 @@
   <% @addresses.each do |address| %>
   <tbody>
     <tr>
-      <td><%= address.customer.postal_code %></td>
-      <td><%= address.customer.address %></td>
-      <td><%= address.customer.last_name %><%= address.customer.first_name %></td>
+      <td><%= address.postal_code %></td>
+      <td><%= address.address %></td>
+      <td><%= address.name %></td>
       <td><%= link_to "編集する", public_address_edit_path, class: "btn btn-success" %><%= link_to "削除する", public_address_destroy_path, class: "btn btn-denger" %></td>
     </tr>
   </tbody>
