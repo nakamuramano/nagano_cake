@@ -3,9 +3,13 @@
     <%= image_tag @item.get_image(200,200) %>
     <%= @item.name %></br>
     <%= @item.introduction %></br>
-   ¥<%= @item.with_tax_price.to_s(:delimited) %></br>
+   ¥<%= @item.with_tax_price.to_s(:delimited) %>(税込)</br>
 
   <%= form_with model: @cart_item, url: '/cart_items', method: :post do |f| %>
-  <%= f.select :amount,] { include_blank: '選択してください'} %><br>
+  <%= f.select :amount,*[1..10], { include_blank: '個数選択'} %>
+  <%= f.hidden_field :title, :value => "楽しいRuby" %>
+  <%= f.submit "カートに入れる", class: "btn btn-success" %>
+  <% end %>
+
   </div>
 </main>

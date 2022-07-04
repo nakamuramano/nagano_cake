@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get 'addresses', to: "public/addresses#index"
     get '/addresses/:id/edit', to: "public/addresses#edit", as: :public_address_edit
     post '/addresses', to: "public/addresses#create", as: :public_address_creste
-    patch '/addresses/:id', to: "public/addresses#update"
+    patch '/addresses/:id', to: "public/addresses#update", as: :public_address_update
     delete '/addresses/:id', to: "public/addresses#destroy", as: :public_address_destroy
     get '/orders', to: "public/orders#index"
   end
