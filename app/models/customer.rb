@@ -6,4 +6,9 @@ class Customer < ApplicationRecord
 
    has_many :carat_items, dependent: :destroy
    has_many :addresses, dependent: :destroy
+
+   def active_for_authentication?
+     super && (is_active == true)
+   end
+
 end
