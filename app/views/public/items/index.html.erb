@@ -8,7 +8,7 @@
           <%= image_tag item.get_image(200,200) %>
         <% end %></br>
           <%= item.name %></br>
-          ¥<%= item.with_tax_price.to_s(:delimited) %></br>
+          ¥<%= item.price.to_s(:delimited) %></br>
       <% end %>
 
       <%= paginate @item %>
