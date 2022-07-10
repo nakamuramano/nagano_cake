@@ -25,7 +25,12 @@ Rails.application.routes.draw do
     post '/addresses', to: "public/addresses#create", as: :public_address_creste
     patch '/addresses/:id', to: "public/addresses#update", as: :public_address_update
     delete '/addresses/:id', to: "public/addresses#destroy", as: :public_address_destroy
+    get '/orders/new', to: "public/orders#new"
+    post '/orders/confirm', to: "public/orders#confirm"
+    get '/orders/complete', to: "public/orders#complete"
+    post 'orders', to: "public/orders#create"
     get '/orders', to: "public/orders#index"
+    get 'orders/:id', to: "public/orders#show"
   end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers:{
