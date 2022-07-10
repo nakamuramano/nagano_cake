@@ -6,9 +6,15 @@ class Customer < ApplicationRecord
 
    has_many :cart_items, dependent: :destroy
    has_many :addresses, dependent: :destroy
+   has_many :order, dependent: :destroy
 
    def active_for_authentication?
      super && (is_active == true)
    end
+
+  def address_display
+   '〒' + postal_code + ' ' + address + ' ' + name
+  end
+
 
 end
