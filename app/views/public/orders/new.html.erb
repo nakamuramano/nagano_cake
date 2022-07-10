@@ -16,6 +16,7 @@
       <div>
 　　　  <%= f.radio_button :address_display, 1 %>
         <%= f.label :address_display, "ご自身の住所" %>
+        <%= @customer.address_display %>
       </div>
       <div>
         <%= f.radio_button :address_id, 2 %>
