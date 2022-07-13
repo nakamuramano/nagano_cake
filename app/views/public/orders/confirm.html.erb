@@ -10,34 +10,43 @@
       <th scope="col">小計</th>
     </tr>
   </thead>
+  <% @cart_items.each do |cart_item| %>
   <tbody>
     <tr>
-      <td></td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td></td>
+      <td><%= image_tag cart_item.item.get_image(100,100) %><%= cart_item.item.name %></td>
+      <td><%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
+      <td><%= cart_item.amount %></td>
+      <td><%= cart_item.subtotal.to_s(:delimited) %></td>
+          <% @total+= cart_item.subtotal %>
     </tr>
   </tbody>
+  <% end %>
 </table>
 <table class="table table-bordered">
   <tbody>
     <tr>
       <th scope="row">送料</th>
-      <td>Mark</td>
+      <td><%= @post_age %></td>
     </tr>
     <tr>
       <th scope="row">商品合計</th>
-      <td>Jacob</td>
+      <td><%= @total %></td>
+      <% @total_payment = @post_age + @total %>
+
     </tr>
     <tr>
       <th scope="row">請求金額</th>
-      <td colspan="2">Larry the Bird</td>
+      <td ><%= @total_payment %></td>
     </tr>
   </tbody>
 </table>
 
 <strong>支払い方法</strong>
+
+
 <strong>お届け先</strong>
 
+
+<%= link_to "注文を確認する", orders_complete_path, class: "btn btn-success" %>
   </div>
 </main>

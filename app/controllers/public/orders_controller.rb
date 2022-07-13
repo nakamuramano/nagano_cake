@@ -25,10 +25,17 @@ class Public::OrdersController < ApplicationController
      end
     end
   end
-  
+
   def confirm
+    @cart_items = current_customer.cart_items.all
+    @total = 0
+    @post_age = 800
+
     @order = Order.new(order_params)
-    binding.pry 
+    @address = Address.find(params[:order][:address_id])
+    @order.postal_code = @address.postal_code
+    @order.address = @address.address
+    @order.name = @address.name
   end
 
   private
