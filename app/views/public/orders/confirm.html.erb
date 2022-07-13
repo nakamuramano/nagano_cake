@@ -42,11 +42,15 @@
 </table>
 
 <strong>支払い方法</strong>
-
+<%= @order.payment_method_i18n %>
 
 <strong>お届け先</strong>
+  <%= @address.postal_code %>
+  <%= @address.address %>
+  <%= @address.name %>
 
-
+<div>
 <%= link_to "注文を確認する", orders_complete_path, class: "btn btn-success" %>
-  </div>
+</div>
+</div>
 </main>

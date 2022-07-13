@@ -13,13 +13,11 @@ class Public::CartItemsController < ApplicationController
        if cart_item.item_id == @cart_item.item_id
           new_amount = cart_item.amount + @cart_item.amount
           cart_item.update_attribute(:amount, new_amount)
-
        end
       end
 
         @cart_item.save
         redirect_to cart_items_path
-
   end
 
   def update
@@ -35,8 +33,8 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
-      @cart_items_destroy_all = CartItem.all
-      @cart_items_destroy_all.destroy
+      @cart_items_destroy_all = current_customer.cart_item.all
+      @cart_items_destroy_all. current_customer.cart_item.destroy_all
       redirect_to '/items'
   end
 

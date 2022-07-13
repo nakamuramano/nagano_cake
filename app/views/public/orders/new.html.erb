@@ -2,8 +2,9 @@
   <div class="container">
     <h4>注文情報入力</h4>
     <strong>支払方法</strong>
+    <%= form_with model: @order, url:  orders_confirm_path, local: true  do |f| %>
+
     <div class="row">
-      <%= form_with model: @order, url:  orders_confirm_path, local: true  do |f| %>
         <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
         <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
      <div>
@@ -14,8 +15,8 @@
     <strong>お届け先</strong>
     <div class="row">
       <div>
-　　　  <%= f.radio_button :address_display, 1 %>
-        <%= f.label :address_display, "ご自身の住所" %>
+　　　  <%= f.radio_button :address_id, 1 %>
+        <%= f.label :address_id, "ご自身の住所" %>
         <%= @customer.address_display %>
       </div>
       <div>
