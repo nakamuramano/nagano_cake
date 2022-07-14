@@ -13,11 +13,11 @@ class Public::OrdersController < ApplicationController
       order_item = OrderItem.new
       order_item.item_id = cart.item_id
       order_item.order_id = @order.id
-      order_item.order_quantity = cart.quantity
-      order_item.order_price = cart.item.price
+      order_item.order_amount = cart.amount
+      order_item.order_tax_included_price = cart.item.pricetax_included_price
     end
-    order_item.save
-    cart_items.destroy_all
+      order_item.save
+      cart_items.destroy_all
     else
       @order = Order.new(order_params)
       render :new
@@ -26,14 +26,15 @@ class Public::OrdersController < ApplicationController
  　　 @order = Order.new(order_params)
     if params[:order][:address_id] == "1"
        @order.name = current_customer.name
+       @order.postal_code = current_customer.postal_code
        @order.address = current_customer.customer_address
     elsif params[:order][:address_id] == "2"
      if Address.exists?(name: params[:order][:address_id])
         @order.name = Address.find(params[:order][:address_id]).name
+        @order.postal_code = Address.find(params[:order][:address_id]).postal_code
         @order.address = Address.find(params[:order][:address_id]).address
      else
         render :post
-
      end
      elsif params[:order][:address_id] == "3"
        address_new = current_customer.addresses.new(order_params)
@@ -49,14 +50,12 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items.all
     @total = 0
     @post_age = 800
-    @customer = current_customer
 
     @order = Order.new(order_params)
     @address = Address.find(params[:order][:address_id])
     @order.postal_code = @address.postal_code
     @order.address = @address.address
     @order.name = @address.name
-
 
   end
 
