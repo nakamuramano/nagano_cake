@@ -18,6 +18,7 @@
       <td><%= cart_item.amount %></td>
       <td><%= cart_item.subtotal.to_s(:delimited) %></td>
           <% @total+= cart_item.subtotal %>
+
     </tr>
   </tbody>
   <% end %>
@@ -45,9 +46,9 @@
 <%= @order.payment_method_i18n %>
 
 <strong>お届け先</strong>
-  <%= @address.postal_code %>
-  <%= @address.address %>
-  <%= @address.name %>
+〒<%= @order.postal_code %>
+<%= @order.address %>
+<%= @order.name %>
 
 <div>
 <%= link_to "注文を確認する", orders_complete_path, class: "btn btn-success" %>

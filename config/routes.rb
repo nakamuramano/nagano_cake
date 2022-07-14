@@ -29,8 +29,8 @@ Rails.application.routes.draw do
     post '/orders/confirm', to: "public/orders#confirm"
     get '/orders/complete', to: "public/orders#complete"
     post 'orders', to: "public/orders#create"
-    get '/orders', to: "public/orders#index"
-    get 'orders/:id', to: "public/orders#show"
+    get '/orders', to: "public/orders#index", as: :public_order_index
+    get 'orders/:id', to: "public/orders#show", as: :public_order_show
   end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers:{

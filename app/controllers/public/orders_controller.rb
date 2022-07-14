@@ -5,6 +5,25 @@ class Public::OrdersController < ApplicationController
     @customer = current_customer
   end
 
+  def confirm
+    @cart_items = current_customer.cart_items.all
+    @total = 0
+    @post_age = 800
+
+    @order = Order.new(order_params)
+    if params[:order][:address_id] == "1"
+       @order.name = current_customer.last_name + current_customer.first_name
+       @order.postal_code = current_customer.postal_code
+       @order.address = current_customer.address
+    elsif @address = Address.find(params[:order][:address_id]) == "2"
+       @order.postal_code = @address.postal_code
+       @order.address = @address.address
+       @order.name = @address.name
+    elsif params[:order][:address_id] == "3"
+    end
+  end
+
+
   def create
     cart_items = current_customer.cart_items.all
     @order = current_customer.orders.new(order_params)
@@ -14,7 +33,7 @@ class Public::OrdersController < ApplicationController
       order_item.item_id = cart.item_id
       order_item.order_id = @order.id
       order_item.order_amount = cart.amount
-      order_item.order_tax_included_price = cart.item.pricetax_included_price
+      order_item.order_tax_included_price = cart.item.price
     end
       order_item.save
       cart_items.destroy_all
@@ -36,7 +55,8 @@ class Public::OrdersController < ApplicationController
      else
         render :post
      end
-     elsif params[:order][:address_id] == "3"
+
+    elsif params[:order][:address_id] == "3"
        address_new = current_customer.addresses.new(order_params)
      if address_new.save
      else
@@ -46,18 +66,7 @@ class Public::OrdersController < ApplicationController
     end
   end
 
-  def confirm
-    @cart_items = current_customer.cart_items.all
-    @total = 0
-    @post_age = 800
 
-    @order = Order.new(order_params)
-    @address = Address.find(params[:order][:address_id])
-    @order.postal_code = @address.postal_code
-    @order.address = @address.address
-    @order.name = @address.name
-
-  end
 
   private
 
@@ -67,3 +76,4 @@ class Public::OrdersController < ApplicationController
    end
 
 end
+
