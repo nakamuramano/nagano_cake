@@ -7,6 +7,7 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @cart_items = current_customer.cart_items.all
+    @addresses = current_customer.addresses.all
     @total = 0
     @post_age = 800
 
@@ -15,7 +16,7 @@ class Public::OrdersController < ApplicationController
        @order.name = current_customer.last_name + current_customer.first_name
        @order.postal_code = current_customer.postal_code
        @order.address = current_customer.address
-    elsif @address = Address.find(params[:order][:address_id]) == "2"
+    elsif @addresses = Address.find(params[:order][:address_id]) == "2"
        @order.postal_code = @address.postal_code
        @order.address = @address.address
        @order.name = @address.name
@@ -48,10 +49,11 @@ class Public::OrdersController < ApplicationController
        @order.postal_code = current_customer.postal_code
        @order.address = current_customer.customer_address
     elsif params[:order][:address_id] == "2"
-     if Address.exists?(name: params[:order][:address_id])
-        @order.name = Address.find(params[:order][:address_id]).name
-        @order.postal_code = Address.find(params[:order][:address_id]).postal_code
-        @order.address = Address.find(params[:order][:address_id]).address
+     if ship = Address.find(params[:order][:address_id])
+        @order.name = ship.name
+        @order.postal_code = ship.postal_code
+        @order.address = ship.address
+
      else
         render :post
      end
