@@ -7,6 +7,7 @@
   box-sizing: border-box;
 }
 
+
 .logo {
   border: solid 1px #000;
   padding: 10px 72px;
@@ -14,20 +15,22 @@
   color: #000000;
 }
 
-#navbarNav ul{
-  display: flex;
-  width: 70%;
+.nav-item{
+  margin: 0 20px;
 }
 
-#navbarNav ul li{
-  flex: 1 1 0%;
-  display: block;
-}
 
 body{
-    border: solid 1px #000;
-    width: 98%;
-    margin: 0 auto;
-    margin-top: 10px;
-    height: 99%;
+  margin: 10px 10px;
+  border: solid 1px #000000;
+}
+
+.line {
+  border-top: solid 1px #000000;
+
+}
+
+footer{
+  height: 100px;
+  border-top: solid 1px #000000;
 }
