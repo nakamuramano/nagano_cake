@@ -33,12 +33,12 @@
     <tr>
       <th scope="row">商品合計</th>
       <td><%= @total %></td>
-      <% @total_payment = @order.post_age + @total %>
+      <% @order.total_payment = @order.post_age + @total %>
 
     </tr>
     <tr>
       <th scope="row">請求金額</th>
-      <td ><%= @total_payment %></td>
+      <td ><%= @order.total_payment.to_s(:delimited)  %></td>
     </tr>
   </tbody>
 </table>

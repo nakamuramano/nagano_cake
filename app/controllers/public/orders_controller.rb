@@ -29,7 +29,6 @@ class Public::OrdersController < ApplicationController
         @cart_items = current_customer.cart_items.all
         @order.customer_id = current_customer.id
         @total = 0
-　　　　@total_payment = @order.post_age + @total
     end
 
     def create
@@ -37,17 +36,16 @@ class Public::OrdersController < ApplicationController
         @order.customer_id = current_customer.id
         @order.save
 
-        current_member.cart_items.each do |cart_item|
-          @ordered_item = OrderedItem.new
+        current_customer.cart_items.each do |cart_item|
+          @ordered_item = OrderDetail.new
           @ordered_item.item_id = cart_item.item_id
           @ordered_item.amount = cart_item.amount
-          @ordered_item.order_tax_included_price = (cart_item.item.price*1.08).floor
-
+          @ordered_item.tax_included_price = (cart_item.item.price*1.08).floor
           @ordered_item.order_id =  @order.id
           @ordered_item.save
         end
 
-        current_member.cart_items.destroy_all
+        current_customer.cart_items.destroy_all
         redirect_to orders_complete_path
 
 
@@ -81,12 +79,12 @@ class Public::OrdersController < ApplicationController
     end
 
     def index
-        @orders = current_custome.orders
+        @order_details = current_customer.order_details.all
     end
-    #def show
-       # @order = Order.find(params[:id])
-        #@ordered_items = @order.ordered_items
-    #end
+    def show
+        @order = Order.find(params[:id])
+        @order_details = @order.order_details
+    end
 
     def order_params
       params.require(:order).permit(:name, :postal_code, :address, :post_age, :total_payment, :payment_method)
