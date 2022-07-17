@@ -45,11 +45,12 @@
 
 <strong>支払い方法</strong>
 <%= @order.payment_method_i18n %>
-
+<br>
 <strong>お届け先</strong>
 〒<%= @order.postal_code %>
 <%= @order.address %>
 <%= @order.name %>
+
 
 <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
    <%= f.hidden_field :customer_id %>

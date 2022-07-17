@@ -96,11 +96,11 @@ ActiveRecord::Schema.define(version: 2022_07_04_125045) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "genre_id", null: false
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
     t.boolean "is_active", default: true, null: false
+    t.integer "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 2022_07_04_125045) do
   create_table "orders", force: :cascade do |t|
     t.string "name", null: false
     t.string "postal_code", null: false
-    t.integer "address", null: false
+    t.string "address", null: false
     t.integer "post_age", null: false
     t.integer "total_payment", null: false
     t.integer "payment_method", null: false

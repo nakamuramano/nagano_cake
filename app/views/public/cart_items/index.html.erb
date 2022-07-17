@@ -37,7 +37,7 @@
     <table class="table table-bordered">
       <tbody>
          <th scope="row">合計金額</th>
-         <td><%= @total %></td>
+         <td><%= @total.to_s(:delimited) %></td>
       </tbody>
     </table>
 <%= link_to "情報入力に進む", orders_new_path, class: "btn btn-success" %>
