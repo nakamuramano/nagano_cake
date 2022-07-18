@@ -32,7 +32,7 @@
       <td scope="col"></td>
     </tr>
   </thead>
-  <% @addresses.each do |address| %>
+  <% current_customer.addresses.each do |address| %>
   <tbody>
     <tr>
       <td><%= address.postal_code %></td>

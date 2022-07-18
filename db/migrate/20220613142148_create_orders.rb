@@ -10,6 +10,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.integer :order_status, null: false, default: 0
       t.integer :customer_id, null: false
 
+
       t.timestamps
     end
   end

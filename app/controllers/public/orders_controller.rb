@@ -2,6 +2,7 @@ class Public::OrdersController < ApplicationController
 
     def new
         @order = Order.new
+        @addresses= Address.all
         @customer = current_customer
     end
 
@@ -38,10 +39,11 @@ class Public::OrdersController < ApplicationController
 
         current_customer.cart_items.each do |cart_item|
           @ordered_item = OrderDetail.new
-          @ordered_item.item_id = cart_item.item_id
+          @ordered_item.item_id = cart_item.item.id
           @ordered_item.amount = cart_item.amount
           @ordered_item.tax_included_price = (cart_item.item.price*1.08).floor
           @ordered_item.order_id =  @order.id
+          @ordered_item.production_status = 0
           @ordered_item.save
         end
 
@@ -79,11 +81,13 @@ class Public::OrdersController < ApplicationController
     end
 
     def index
-       @orders = current_customer.order.all
+      @orders = current_customer.order.all
+
     end
 
     def show
-        @order = current_customer.order.find(params[:id])
+        @order = order.find(params[:id])
+        @ordered_items = @order.ordered_items
         @total = 0
 
     end
