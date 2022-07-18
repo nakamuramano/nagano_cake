@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     post 'orders', to: "public/orders#create"
     get '/orders', to: "public/orders#index", as: :public_order_index
     get 'orders/:id', to: "public/orders#show", as: :public_order_show
+    
   end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers:{
@@ -55,6 +56,7 @@ Rails.application.routes.draw do
   get '/admin/genres/:id/edit', to: 'admin/genres#edit', as: :admin_genres_edit
   patch '/admin/genres/:id', to: 'admin/genres#update', as: :admin_genres_update
   get '/admin/orders/:id', to: 'admin/orders#show', as: :admin_order_show
+  patch '/admin/order_details/:id', to: 'admin/order_details#update'
 end
 
 

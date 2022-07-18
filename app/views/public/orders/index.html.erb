@@ -12,13 +12,13 @@
           <th scope="col">注文詳細</th>
         </tr>
       </thead>
-      <%  @order_details.each do |order_details| %>
+      <%  @orders.each do |order| %>
       <tbody>
         <tr>
-          <td><%= order_details.order.created_at.strftime('%Y/%m/%d') %></td>
-          <td><%= order_details.order.address %></td>
-          <td><%= order_details.item.name %></td>
-          <td><%= order_details.order.total_payment.to_s(:delimited)  %></td>
+          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+          <td><%= order.address %></td>
+          <td><%= order.name %></td>
+          <td><%= order.total_payment.to_s(:delimited)  %></td>
           <td><%= link_to "表示する", public_order_show_path(order), class: "btn btn-primary" %></td>
         </tr>
       </tbody>

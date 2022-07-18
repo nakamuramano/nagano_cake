@@ -1,21 +1,25 @@
 <main>
   <div class="container">
     <h4>注文履歴詳細</h4>
-    
+
     <strong>注文情報</strong>
 <table class="table table-bordered">
   <tbody>
     <tr>
       <th scope="row">注文日</th>
-      <td>Mark</td>
+      <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
     </tr>
     <tr>
       <th scope="row">配送先</th>
-      <td>Jacob</td>
+      <td>
+        <%= @order.postal_code %>
+        <%= @order.address %>
+        <%= @order.name %>
+      </td>
     </tr>
     <tr>
       <th scope="row">支払方法</th>
-      <td>Jacob</td>
+      <td><%= @order.payment_method_i18n %></td>
     </tr>
   </tbody>
 </table>
@@ -25,15 +29,15 @@
   <tbody>
     <tr>
       <th scope="row">商品合計</th>
-      <td>Mark</td>
+      <td>></td>
     </tr>
     <tr>
       <th scope="row">配送料</th>
-      <td>Jacob</td>
+      <td><%= @order.post_age %></td>
     </tr>
     <tr>
       <th scope="row">ご請求額</th>
-      <td>Jacob</td>
+      <td><%= @order.total_payment.to_s(:delimited) %></td>
     </tr>
   </tbody>
 </table>
@@ -50,7 +54,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>Mark</td>
+      <td> </td>
       <td>Otto</td>
       <td>@mdo</td>
       <td>@mdo</td>
