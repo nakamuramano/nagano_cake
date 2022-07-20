@@ -7,7 +7,8 @@
              <th scope="row">購入者</th>
              <td>
                <%= link_to admin_customer_show_path(@order.id) do %>
-                 <%= @order.name %>
+                 <%= @order.customer.last_name %>
+                 <%= @order.customer.first_name %>
                <% end %>
              </td>
             </tr>
@@ -19,7 +20,7 @@
               <th scope="row">配送先</th>
               <td>
                 〒<%= @order.postal_code %>
-                <%= @order.address %>
+                <%= @order.address %></br>
                 <%= @order.name %>
               </td>
             </tr>
@@ -40,6 +41,14 @@
            </tr>
           </thead>
           <tbody>
+            <% @order_details.each do |order_detail| %>
+              <tr>
+                <td><%= order_detail.item.name %></td>
+                <td><%= order_detail.item.with_tax_price.to_s(:delimited) %></td>
+                <td><%= order_detail.amount %></td>
+                <td><%= ((order_detail.item.price * 1.1).floor * order_detail.amount).to_s(:delimited) %></td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
         <table class="table table-borderless">
@@ -47,15 +56,15 @@
             <tr>
               <th scope="row">商品合計</th>
                <% @total = @order.total_payment - @order.post_age %>
-              <td><%= @total.to_s(:delimited) %></td>
+              <td><%= @total.to_s(:delimited) %>円</td>
             </tr>
             <tr>
               <th scope="row">送料</th>
-              <td><%= @order.post_age %></td>
+              <td><%= @order.post_age %>円</td>
             </tr>
             <tr>
               <th scope="row">請求金額合計</th>
-              <th colspan="2"><%= @order.total_payment.to_s(:delimited) %></th>
+              <th colspan="2"><%= @order.total_payment.to_s(:delimited) %>円</th>
             </tr>
           </tbody>
         </table>

@@ -18,4 +18,6 @@ class Item < ApplicationRecord
   def get_image(width,height)
     image.variant(resize_to_limit: [width,height]).processed
   end
+
+
 end

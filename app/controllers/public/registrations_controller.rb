@@ -12,8 +12,11 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   def update
     @customer = current_customer
-    @customer.update(customer_params)
-    redirect_to  customers_my_page_path(@customer)
+    if@customer.update(customer_params)
+      redirect_to  customers_my_page_path(@customer)
+    else
+      render :edit
+    end
 
   end
 

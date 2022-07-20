@@ -6,6 +6,12 @@ class Order < ApplicationRecord
 
     enum payment_method: { credit_card: 0, transfer: 1 }
 
-
+   def order_detail
+    @amount = 0
+    self.order_details.each do |order|
+      @amount += order.amount
+    end
+     return @amount
+   end
 
 end
