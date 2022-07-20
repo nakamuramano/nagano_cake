@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
-    
+
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header style="margin: 10px 20px">
+    <header style="margin: 20px 20px">
       <nav class="navbar navbar-expand-lg" >
         <div class="logo"><a href="#" >LOGO</a></div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,8 @@
     <%= yield %>
     </main>
 
-  <footer></footer>
+   <footer style="height: 110px">
+    </footer>
 
   </body>
 </html>
