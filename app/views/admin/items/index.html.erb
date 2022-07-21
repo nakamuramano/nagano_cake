@@ -1,13 +1,14 @@
 <main>
   <div class="container">
     <div class="row">
-      <h4>商品一覧</h4>
+      <h5>商品一覧</h5>
+      
       <%= link_to admin_items_new_path do %>
         <i class="fas fa-plus-circle fa-3x" style="color: gray;"></i>
       <% end %>
         <table class="table">
           <thead>
-            <tr>
+            <tr class="table-active">
               <th scope="col">商品ID</th>
               <th scope="col">商品名</th>
               <th scope="col">税抜価格</th>
@@ -17,7 +18,7 @@
           <% @items.each do |item| %>
             <tbody>
               <tr>
-                <th scope="row"><%= item.id %></th>
+                <td scope="row"><%= item.id %></td>
                 <td>
                   <%= link_to admin_items_show_path(item.id) do %>
                     <%= item.name %>

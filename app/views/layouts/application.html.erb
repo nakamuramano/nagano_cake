@@ -38,7 +38,6 @@
               <li class="nav-item">
                 <%= link_to "ログアウト", destroy_admin_session_path,  class: "btn btn-outline-secondary" %>
               </li>
-
             <% elsif customer_signed_in? %>
             ようこそ、<%= current_customer.last_name %>さん！
 
@@ -69,8 +68,7 @@
               <li class="nav-item">
                 <%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-secondary" %>
               </li>
-
-              <% end %>
+            <% end %>
           </ul>
         </div>
       </nav>
@@ -79,9 +77,8 @@
     <main>
     <%= yield %>
     </main>
+      <footer style="height: 110px">
 
-   <footer style="height: 110px">
-    </footer>
 
   </body>
 </html>
