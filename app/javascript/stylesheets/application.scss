@@ -15,7 +15,7 @@
   font-size: 30px;
   color: #000000;
 }
-a {
+td a {
   color: #000000;
 }
 
@@ -59,4 +59,20 @@ footer{
   top: 120px;
   right: 150px;
 
+}
+
+.paginate {
+  margin: 0 auto;
+}
+
+#border {
+  border-bottom: solid 1px #dcdcdc;
+}
+
+.link{
+  text-decoration: underline;
+}
+
+h5 .container {
+  padding-left: 100px;
 }
