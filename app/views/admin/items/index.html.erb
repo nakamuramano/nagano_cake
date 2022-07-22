@@ -2,10 +2,11 @@
   <div class="container">
     <div class="row">
       <h5>商品一覧</h5>
-      
+       <div class="icon">
       <%= link_to admin_items_new_path do %>
         <i class="fas fa-plus-circle fa-3x" style="color: gray;"></i>
       <% end %>
+       </div>
         <table class="table">
           <thead>
             <tr class="table-active">
@@ -18,14 +19,14 @@
           <% @items.each do |item| %>
             <tbody>
               <tr>
-                <td scope="row"><%= item.id %></td>
-                <td>
+                <td width="100"><%= item.id %></td>
+                <td width="200">
                   <%= link_to admin_items_show_path(item.id) do %>
                     <%= item.name %>
                   <% end %>
                 </td>
-                <td><%= item.price.to_s(:delimited) %></td>
-                <td><%= item.genre.name %></td>
+                <td width="100"><%= item.price.to_s(:delimited) %></td>
+                <td width="100"><%= item.genre.name %></td>
               </tr>
             </tbody>
           <% end %>

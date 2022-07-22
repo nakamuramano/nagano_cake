@@ -4,3 +4,11 @@
         payment_method:
           credit_card: "クレジットカード"
           transfer: "銀行振込"
+
+
+    views:
+      pagination:
+        first: "≪ First"
+        previous: "< Prev"
+        next: "Next >"
+        last: "Last ≫"
