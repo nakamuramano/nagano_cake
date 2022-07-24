@@ -8,29 +8,30 @@ class Public::OrdersController < ApplicationController
 
     def confirm
         @order = Order.new(order_params)
-    　if params[:order][:address_id] == "1"
+      if params[:order][:address_id] == "1"
         @order.postal_code = current_customer.postal_code
         @order.address = current_customer.address
         @order.name = current_customer.last_name + current_customer.first_name
 
-    　elsif params[:order][:address_id] == "2"
-        ship = Address.find(params[:order][:addresses_id])
+      elsif params[:order][:address_id] == "2"
+       ship = Address.find(params[:order][:addresses_id])
         @order.postal_code = ship.postal_code
         @order.address = ship.address
         @order.name = ship.name
 
-    　elsif params[:order][:address_id] = "3"
+      elsif params[:order][:address_id] = "3"
         @order.postal_code = params[:order][:postal_code]
         @order.address = params[:order][:address]
         @order.name = params[:order][:name]
-    　else
+      else
          render :post
-    　end
+      end
 
         @cart_items = current_customer.cart_items.all
         @order.customer_id = current_customer.id
         @total = 0
     end
+
 
     def create
         @order = Order.new(order_params)
@@ -49,8 +50,6 @@ class Public::OrdersController < ApplicationController
       else
           render :new
       end
-
-
         current_customer.cart_items.destroy_all
         redirect_to orders_complete_path
 

@@ -9,23 +9,23 @@
          <%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
           <tbody>
             <tr>
-              <td width="150"><div class="form-group"><label>商品画像</label></div></td>
+              <th width="150">商品画像</th>
               <td><%= f.file_field :image, accept: "image/*" %></td>
             </tr>
             <tr>
-              <td width="150"><div class="form-group"><label>商品名</label></div></td>
+              <th width="150">商品名</th>
               <td><%= f.text_field :name, placeholder: "商品名", size: 40 %></td>
             </tr>
             <tr>
-              <td width="150"><div class="form-group"><label>商品説明</label></div></td>
-              <td><%= f.text_area :introduction, placeholder: "ここに説明文を記述します", size: "40x6" %></td>
+              <th width="150">商品説明</th>
+              <td><%= f.text_area :introduction, placeholder: "ここに説明文を記述します", size: "39x5" %></td>
             </tr>
             <tr>
-              <td width="150"><div class="form-group"><label>ジャンル</label></div></td>
-              <td><%= f.select :genre_id,options_from_collection_for_select(Genre.all, :id, :name), { include_blank: '選択してください'} %></td>
+              <th width="150">ジャンル</th>
+              <td><%= f.select :genre_id,options_from_collection_for_select(Genre.all, :id, :name), { include_blank: '選択してください'}, class: "select" %></td>
             </tr>
             <tr>
-              <td width="150"><div class="form-group"><label>税抜価格</label></div></td>
+              <th width="150">税抜価格</th>
               <td><%= f.text_field :price, placeholder: "1000", size: 40 %>円</td>
             </tr>
             <tr>
