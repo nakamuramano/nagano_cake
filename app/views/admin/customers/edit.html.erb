@@ -1,6 +1,6 @@
 <main>
-  　<%= form_with model: @admin_customer, url: admin_customer_update_path, method: :patch do |f| %>
-  　   　　 <h4><%= @admin_customer.last_name %><%= @admin_customer.first_name %>さんの会員詳細</h4>
+    <%= form_with model: @admin_customer, url: admin_customer_update_path, method: :patch do |f| %>
+    <h4><%= @admin_customer.last_name %><%= @admin_customer.first_name %>さんの会員詳細</h4>
    <table class="table table-borderless">
 
     </tbody>
@@ -66,5 +66,5 @@
         </tbody>
        </table>
 
-　　<% end %>
+   <% end %>
 </main>

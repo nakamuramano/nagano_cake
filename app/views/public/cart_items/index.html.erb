@@ -40,7 +40,11 @@
          <td><%= @total.to_s(:delimited) %></td>
       </tbody>
     </table>
-<%= link_to "情報入力に進む", orders_new_path, class: "btn btn-success" %>
+    <% if @cart_items.any? %>
+     <%= link_to "情報入力に進む", orders_new_path, class: "btn btn-success" %>
+    <% end %>
+
+
 
     </div>
 </main>
