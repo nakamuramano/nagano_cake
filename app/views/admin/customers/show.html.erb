@@ -1,53 +1,39 @@
 <main>
   <div class="container">
     <div class="row">
-      <h4><%= @admin_customer.last_name %><%= @admin_customer.first_name %>さんの会員詳細</h4>
-
+      <h5><%= @admin_customer.last_name %><%= @admin_customer.first_name %>さんの会員詳細</h5>
+    </div>
       <table class="table table-borderless">
         <tbody>
           <tr>
-            <td>会員ID</td>
+            <td width="240">会員ID</td>
             <td><%= @admin_customer.id %></td>
           </tr>
-        </tbody>
-        <tbody>
           <tr>
             <td>氏名</td>
             <td><%= @admin_customer.last_name %><%= @admin_customer.first_name %></td>
           </tr>
-        </tbody>
-        <tbody>
           <tr>
             <td>フリガナ</td>
             <td>
               <%= @admin_customer.last_name_kana %><%= @admin_customer.first_name_kana %></td>
           </tr>
-        </tbody>
-        <tbody>
           <tr>
             <td>郵便番号</td>
             <td><%= @admin_customer.postal_code %></td>
           </tr>
-        </tbody>
-        <tbody>
           <tr>
             <td>住所</td>
             <td><%= @admin_customer.address %></td>
           </tr>
-        </tbody>
-        <tbody>
           <tr>
             <td>電話番号</td>
             <td><%= @admin_customer.telephone_number %></td>
           </tr>
-        </tbody>
-        <tbody>
           <tr>
             <td>メールアドレス</td>
             <td><%= @admin_customer.email%></td>
           </tr>
-        </tbody>
-        <tbody>
           <tr>
             <td>会員ステータス</td>
             <% if @admin_customer.is_active? %>
@@ -58,8 +44,14 @@
           </tr>
         </tbody>
       </table>
-       <%= link_to '編集する', admin_customer_edit_path(@admin_customer.id), class: "btn btn-success" %>
-       <%= link_to '注文履歴一覧を見る', admin_path, class: "btn btn-primary" %>
+      <table class="table table-borderless", id="btn-table">
+        <tbody>
+          <tr>
+            <td width="150"><%= link_to '編集する', admin_customer_edit_path(@admin_customer.id), class: "btn btn-success px-4" %></td>
+            <td><%= link_to '注文履歴一覧を見る', admin_path, class: "btn btn-primary px-4" %></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </main>
