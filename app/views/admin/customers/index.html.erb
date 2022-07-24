@@ -34,3 +34,45 @@
           </dev>
    </div>
 </main>
+
+
+
+
+<main>
+  <div class="container">
+    <div class="row">
+      <h5>会員一覧</h5>
+        <table class="table table-borderless", id="border">
+          <thead>
+            <tr class="table-active">
+              <th scope="col">会員ID</th>
+              <th scope="col">氏名</th>
+              <th scope="col">メールアドレス</th>
+              <th scope="col">ステータス</th>
+            </tr>
+          </thead>
+          <% @admin_customer.each do |customer| %>
+            <tbody>
+              <tr>
+                <td width="100"><%= customer.id %></td>
+                <td width="100" class="link">
+                  <%= link_to  admin_customer_show_path(customer.id) do %>
+                    <%= customer.last_name %><%= customer.first_name %>
+                  <% end %>
+                </td>
+                <td width="100"><%= customer.email %></td>
+                 <% if customer.is_active? %>
+                   <td width="100" class="text-success">有効</td>
+                 <% else %>
+                   <td class="text-secondary">退会</td>
+                 <% end %>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+        <div class="paginate">
+         <%= paginate @admin_customer %>
+        </div>
+    </div>
+  </div>
+</main>
