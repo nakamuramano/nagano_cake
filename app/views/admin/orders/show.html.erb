@@ -1,11 +1,14 @@
 <main>
   <div class="container">
-      <h4>注文詳細</h4>
+    <div class="row">
+      <h5>注文履歴書詳細</h5>
+    </div>
+      <div class="row">
         <table class="table table-borderless">
           <tbody>
             <tr>
-             <th scope="row">購入者</th>
-             <td>
+             <th scope="row" width="200">購入者</th>
+             <td class="link">
                <%= link_to admin_customer_show_path(@order.id) do %>
                  <%= @order.customer.last_name %>
                  <%= @order.customer.first_name %>
@@ -30,43 +33,50 @@
             </tr>
           </tbody>
         </table>
-
-        <table class="table table-borderless">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">商品名</th>
-              <th scope="col">単価（税込）</th>
-              <th scope="col">数量</th>
-              <th scope="col">小計</th>
-           </tr>
-          </thead>
-          <tbody>
-            <% @order_details.each do |order_detail| %>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="col-lg-9">
+          <table class="table table-borderless", id="border">
+            <thead class="thead-light">
               <tr>
-                <td><%= order_detail.item.name %></td>
-                <td><%= order_detail.item.with_tax_price.to_s(:delimited) %></td>
-                <td><%= order_detail.amount %></td>
-                <td><%= ((order_detail.item.price * 1.1).floor * order_detail.amount).to_s(:delimited) %></td>
+                <th scope="col">商品名</th>
+                <th scope="col">単価（税込）</th>
+                <th scope="col">数量</th>
+                <th scope="col">小計</th>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <table class="table table-borderless">
-          <tbody>
-            <tr>
-              <th scope="row">商品合計</th>
-               <% @total = @order.total_payment - @order.post_age %>
-              <td><%= @total.to_s(:delimited) %>円</td>
-            </tr>
-            <tr>
-              <th scope="row">送料</th>
-              <td><%= @order.post_age %>円</td>
-            </tr>
-            <tr>
-              <th scope="row">請求金額合計</th>
-              <th colspan="2"><%= @order.total_payment.to_s(:delimited) %>円</th>
-            </tr>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <% @order_details.each do |order_detail| %>
+                <tr>
+                  <td><%= order_detail.item.name %></td>
+                  <td><%= order_detail.item.with_tax_price.to_s(:delimited) %></td>
+                  <td><%= order_detail.amount %></td>
+                  <td><%= ((order_detail.item.price * 1.1).floor * order_detail.amount).to_s(:delimited) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-lg-3">
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th scope="row">商品合計</th>
+                 <% @total = @order.total_payment - @order.post_age %>
+                <td><%= @total.to_s(:delimited) %>円</td>
+              </tr>
+              <tr>
+                <th scope="row">送料</th>
+                <td><%= @order.post_age %>円</td>
+              </tr>
+              <tr>
+                <th scope="row">請求金額合計</th>
+                <th colspan="2"><%= @order.total_payment.to_s(:delimited) %>円</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </main>
