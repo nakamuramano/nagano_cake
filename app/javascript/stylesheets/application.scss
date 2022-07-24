@@ -114,3 +114,42 @@ margin-left: 245px;
 .sign-up {
   padding-right: 400px;
 }
+
+.top-image {
+  width: 600px;
+  height: 300px;
+  margin: 40px auto;
+  border: solid 1px #000;
+  position: relative;
+
+}
+
+.top-image div{
+    transform: rotate(26.5deg);
+    transform-origin: 0% 0%;
+    width: 670px;
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 0;
+    padding: 0;
+}
+
+.top-image>p {
+  width: 400px;
+  height: 150px;
+  padding: 20px 0;
+  border: solid 1px #000;
+  background-color: #f0f8ff;
+  position: absolute;
+  top: 70px;
+  right: 100px;
+}
+
+h3 {
+  margin-left: 300px;
+}
+
+.link-item{
+  text-decoration: underline;
+  margin-left: 900px;
+}
