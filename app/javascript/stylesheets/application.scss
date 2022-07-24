@@ -153,3 +153,27 @@ h3 {
   text-decoration: underline;
   margin-left: 900px;
 }
+
+.about {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.about-image {
+  width: 500px;
+  height: 200px;
+  margin: 40px auto;
+  border: solid 1px #000;
+  position: relative;
+    padding: 0;
+}
+
+.about-image div {
+    transform: rotate(21.6deg);
+    transform-origin: 0% 0%;
+    width: 535px;
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 0;
+    padding: 0;
+}
