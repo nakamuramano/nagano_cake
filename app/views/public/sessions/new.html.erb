@@ -8,7 +8,7 @@
     </div>
     <div class="row">
       <div  class="mx-auto">
-        <%= form_with model: @admin, url: new_admin_session_path do |f| %>
+        <%= form_with model: @customer, url: new_customer_session_path do |f| %>
           <table class="table table-borderless">
             <tbody>
               <tr>
@@ -31,11 +31,7 @@
           <div class="row">
             <h5 >会員登録がお済みではない方</h5>
         </div>
-          <div class="row">
-           <div  class="mx-auto">
 
        <%= link_to "こちら", new_customer_registration_path, class: "link" %>から新規登録を行ってください。
-       </div>
-       </div>
   </div>
 </main>

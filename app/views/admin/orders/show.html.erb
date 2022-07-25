@@ -9,7 +9,7 @@
             <tr>
              <th scope="row" width="200">購入者</th>
              <td class="link">
-               <%= link_to admin_customer_show_path(@order.id) do %>
+               <%= link_to admin_customer_show_path(@order.customer.id) do %>
                  <%= @order.customer.last_name %>
                  <%= @order.customer.first_name %>
                <% end %>
