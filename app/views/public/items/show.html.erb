@@ -19,19 +19,19 @@
     <tr>
       <td colspan="3" class="font-weight-bold">¥<%= @item.with_tax_price.to_s(:delimited) %>(税込)</td>
     </tr>
-    <%= form_with model: @cart_item, url: '/cart_items', method: :post do |f| %>
-    <tr>
-      <td width="150">
+     <tr>
+     <%= form_with model: @cart_item, url: '/cart_items', method: :post do |f| %>
+
+      <td width="150" class="cart_in">
          <%= f.hidden_field :item_id, :value => @item.id %>
          <%= f.hidden_field :customer_id, :value => current_customer.id %>
           <%= f.select :amount,*[1..10], { include_blank: '個数選択'} %>
+          <%= f.submit "カートに入れる", class: "btn btn-success" %>
       </td>
-      <td><%= f.submit "カートに入れる", class: "btn btn-success" %></td>
-
       <td></td>
+      <% end %>
+     </tr>
 
-    </tr>
-    <% end %>
   </tbody>
 </table>
 

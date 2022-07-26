@@ -204,7 +204,11 @@ h3 {
   margin-right: 40px;
 }
 
-td h4 {
+td h4{
+   white-space: nowrap;
+}
+
+.cart_in{
    white-space: nowrap;
 }
 
@@ -218,4 +222,8 @@ td h4 {
 
 .next-btn{
   margin: 40px 400px;
+}
+
+.a {
+  width: 400px;
 }
