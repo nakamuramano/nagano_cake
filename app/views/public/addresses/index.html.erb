@@ -1,35 +1,38 @@
 <main>
   <div class="container">
-    <h5>配送先登録/一覧</h5>
+    <div class="row">
+      <h5>配送先登録/一覧</h5>
+    </div>
     <%= form_with model: @address, url: '/addresses', method: :post do |f| %>
     <table class="table table-borderless">
   <tbody>
     <tr>
-      <td>郵便番号(ハイフンなし)</td>
-      <td><%= f.text_field :postal_code, placeholder: "00000000" %></td>
+      <td width="200">郵便番号(ハイフンなし)</td>
+      <td width="400"><%= f.text_field :postal_code, placeholder: "00000000" %></td>
       <td></td>
     </tr>
     <tr>
       <td>住所</td>
-      <td><%= f.text_area :address,  placeholder: "東京都渋谷区代々木神園町0-0" %></td>
+      <td><%= f.text_area :address,  placeholder: "東京都渋谷区代々木神園町0-0", size: "60x1" %></td>
       <td></td>
     </tr>
     <tr>
       <td>宛名</td>
       <td><%= f.text_field :name, placeholder: "令和道子" %></td>
-      <td><%= f.submit '新規登録', class: "btn btn-success" %></td>
+      <td><%= f.submit '新規登録', class: "btn btn-success px-4" %></td>
     </tr>
   </tbody>
 </table>
 <% end %>
 
+<div class="address-table">
 <table class="table table-bordered">
   <thead>
     <tr>
-      <td scope="col">郵便番号</td>
-      <td scope="col">住所</td>
-      <td scope="col">宛名</td>
-      <td scope="col"></td>
+      <td scope="col" class="table-active">郵便番号</td>
+      <td scope="col" class="table-active">住所</td>
+      <td scope="col" class="table-active">宛名</td>
+      <td scope="col" class="table-active"></td>
     </tr>
   </thead>
   <% current_customer.addresses.each do |address| %>
@@ -43,6 +46,7 @@
   </tbody>
   <% end %>
 </table>
+</div>
 
   </div>
 </main>

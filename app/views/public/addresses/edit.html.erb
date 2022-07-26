@@ -1,26 +1,26 @@
 <main>
   <div class="container">
     <div class="row">
-      <h4>配送先編集</h4>
+      <h5>配送先編集</h5>
     </div>
     <%= form_with model: @address, url: public_address_update_path, method: :patch do |f| %>
     <table class="table table-borderless">
 
   <tbody>
     <tr>
-      <td>郵便番号(ハイフンなし)</td>
-      <td><%= f.text_field :postal_code %></td>
+      <td width="200">郵便番号(ハイフンなし)</td>
+      <td width="400"><%= f.text_field :postal_code %></td>
       <td></td>
     </tr>
     <tr>
       <td>住所</td>
-      <td><%= f.text_area :address %></td>
+      <td><%= f.text_area :address, size: "60x1" %></td>
       <td></td>
     </tr>
     <tr>
       <td>宛名</td>
       <td><%= f.text_field :name %></td>
-      <td><%= f.submit "更新内容を保存", class: "btn btn-success" %></td>
+      <td><%= f.submit "更新内容を保存", class: "btn btn-success px-4" %></td>
     </tr>
   </tbody>
   <% end %>
@@ -28,3 +28,6 @@
 
   </div>
 </main>
+
+
+
