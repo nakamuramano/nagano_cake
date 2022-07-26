@@ -1,18 +1,27 @@
 <main>
   <div class="container">
-    <main>
-      <h4>商品一覧(全<%= @items.count %>件)</h4>
-
+    <div class="row">
+      <div class="item-all">
+        <div style="font-size: 30px;"><b>商品一覧</b></div><p>(全<%= @items.count %>件)</p>
+      </div>
+     <div class="row">
       <% @item.each do |item| %>
+      <div class="col-3">
         <%= link_to public_item_show_path(item.id) do %>
-          <%= image_tag item.get_image(200,200) %>
+          <%= image_tag item.get_image(200,600) %>
         <% end %></br>
-          <%= item.name %></br>
-          ¥<%= item.with_tax_price.to_s(:delimited) %></br>
-      <% end %>
 
-      <%= paginate @item %>
-    </main>
+          <%= item.name %></br>
+          ¥<%= item.with_tax_price.to_s(:delimited) %>
+      </div>
+      <% end %>
+     </div>
+
+     <div class="paginate">
+      <%= paginate @item  %>
+     </div>
   </div>
 </main>
+
+
 

@@ -62,8 +62,9 @@ footer{
 }
 
 .paginate {
-  margin: 0 auto;
+  margin: 40px auto;
 }
+
 
 .customer-paginate {
   padding-left: 400px;
@@ -178,4 +179,15 @@ h3 {
     margin: 0;
     padding: 0;
 }
+
+.item-all{
+  margin: 40px 0;
+  display: flex;
+}
+
+.item-all p {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
 
