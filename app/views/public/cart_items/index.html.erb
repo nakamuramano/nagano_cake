@@ -34,8 +34,9 @@
           </tbody>
         <% end %>
     </table>
-
+  <div class="sopping-btn">
   <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
+
    <div class="cart_table">
     <table class="table table-bordered">
       <tbody>
@@ -43,6 +44,7 @@
          <td width="200"><%= @total.to_s(:delimited) %></td>
       </tbody>
     </table>
+  </div>
     </div>
     <div class="next-btn">
     <% if @cart_items.any? %>

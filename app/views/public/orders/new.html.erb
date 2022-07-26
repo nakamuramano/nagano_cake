@@ -1,13 +1,15 @@
 <main>
   <div class="container">
+  <%= form_with model: @order, url:  orders_confirm_path, method: :post, local: true  do |f| %>
+
     <div class="row">
+
       <h5>注文情報入力</h5>
     </div>
     <div class="row">
     <strong>支払方法</strong>
     </div>
     <div class="row">
-    <%= form_with model: @order, url:  orders_confirm_path, method: :post, local: true  do |f| %>
     </div>
     <div>
       <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
@@ -58,8 +60,8 @@
          <div class="row justify-content-center py-5">
            <%= f.submit "確認画面へ進む" , class:"btn btn-primary px-4" %>
          </div>
-      <% end %>
- </div>
 
+ </div>
+<% end %>
   </div>
 </main>

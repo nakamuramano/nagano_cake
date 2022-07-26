@@ -212,11 +212,15 @@ td h4{
    white-space: nowrap;
 }
 
+.sopping-btn{
+  position: relative;
+}
+
 .cart_table{
-  width: 400px;
+  width: 300px;
   position: absolute;
-  top: 460px;
-  right: 140px;
+  top: 0;
+  right: 0;
 
 }
 
@@ -224,6 +228,10 @@ td h4{
   margin: 40px 400px;
 }
 
-.a {
-  width: 400px;
+.order{
+  margin: 20px 0;
+}
+
+.order strong{
+  margin: 0 10px;
 }
