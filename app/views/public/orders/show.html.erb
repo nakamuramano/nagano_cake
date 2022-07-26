@@ -1,16 +1,19 @@
 <main>
   <div class="container">
-    <h4>注文履歴詳細</h4>
-
+    <div class="row">
+      <h5>注文履歴詳細</h5>
+    </div>
+   <div class="row">
+     <div class="col-8">
     <strong>注文情報</strong>
 <table class="table table-bordered">
   <tbody>
     <tr>
-      <th scope="row">注文日</th>
+      <th scope="row" class="table-active">注文日</th>
       <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
     </tr>
     <tr>
-      <th scope="row">配送先</th>
+      <th scope="row" class="table-active">配送先</th>
       <td>
         <%= @order.postal_code %>
         <%= @order.address %>
@@ -18,36 +21,38 @@
       </td>
     </tr>
     <tr>
-      <th scope="row">支払方法</th>
+      <th scope="row" class="table-active">支払方法</th>
       <td><%= @order.payment_method_i18n %></td>
     </tr>
   </tbody>
 </table>
-
+</div>
+<div class="col-4">
 <strong>請求情報</strong>
 <table class="table table-bordered">
   <tbody>
     <tr>
-      <th scope="row">商品合計</th>
+      <th scope="row" class="table-active">商品合計</th>
       <% @total = @order.total_payment - @order.post_age %>
       <td><%= @total.to_s(:delimited) %></td>
     </tr>
     <tr>
-      <th scope="row">配送料</th>
+      <th scope="row" class="table-active">配送料</th>
       <td><%= @order.post_age %></td>
     </tr>
     <tr>
-      <th scope="row">ご請求額</th>
+      <th scope="row" class="table-active">ご請求額</th>
       <td><%= @order.total_payment.to_s(:delimited) %></td>
     </tr>
   </tbody>
 </table>
-
-<strong></strong>
+</div>
+<div class="order-table">
+<strong>注文内容</strong>
 <table class="table table-bordered">
   <thead>
-    <tr>
-      <th scope="col">商品</th>
+    <tr class="table-active">
+      <th scope="col" >商品</th>
       <th scope="col">単価（税込）</th>
       <th scope="col">個数</th>
       <th scope="col">小計</th>
@@ -64,6 +69,7 @@
   </tbody>
   <% end %>
 </table>
-
+</div>
+</div>
   </div>
 </main>
