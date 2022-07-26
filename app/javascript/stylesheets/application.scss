@@ -58,7 +58,12 @@ footer{
   position: absolute;
   top: 120px;
   right: 150px;
+}
 
+.cart_btn {
+  position: absolute;
+  top: 120px;
+  right: 150px;
 }
 
 .paginate {
@@ -201,4 +206,16 @@ h3 {
 
 td h4 {
    white-space: nowrap;
+}
+
+.cart_table{
+  width: 400px;
+  position: absolute;
+  top: 460px;
+  right: 140px;
+
+}
+
+.next-btn{
+  margin: 40px 400px;
 }
