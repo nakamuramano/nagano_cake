@@ -13,37 +13,37 @@
       <tr>
         <td width="200">名前</td>
         <td width="10" align="right">(姓)</td>
-        <td width="200"><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %></td>
+        <td width="200"><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "令和"  %></td>
         <td width="10" align="right">(名)</td>
-        <td><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %></td>
+        <td><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "道子"  %></td>
       </tr>
         <tr>
           <td >フリガナ</td>
           <td width="70" align="right">(セイ)</td>
-          <td><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %></td>
+          <td><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", placeholder: "レイワ"  %></td>
           <td width="70" align="right">(メイ)</td>
-          <td><%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %></td>
+          <td><%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "ミチコ"  %></td>
         </tr>
         <tr>
           <td>メールアドレス</td>
           <td></td>
-          <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@sample.com"  %></td>
         </tr>
         <tr>
           <td>郵便番号(ハイフンなし)</td>
           <td></td>
-          <td><%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %></td>
+          <td><%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder: "00000000"  %></td>
         </tr>
         <tr>
           <td >住所</td>
           <td></td>
-          <td colspan="3"><%= f.text_area :address, autofocus: true, autocomplete: "address", size: "55x1" %></td>
+          <td colspan="3"><%= f.text_area :address, autofocus: true, autocomplete: "address", size: "55x1", placeholder: "東京都渋谷区代々木神園町0-0"  %></td>
           <td></td>
         </tr>
         <tr>
           <td >電話番号(ハイフンなし)</td>
           <td></td>
-          <td><%= f.telephone_field :telephone_number, autofocus: true, autocomplete: "telephone_numbe" %></td>
+          <td><%= f.telephone_field :telephone_number, autofocus: true, autocomplete: "telephone_numbe", placeholder: "00000000000"  %></td>
         </tr>
         <tr>
           <td>

@@ -3,10 +3,10 @@
     <div class="row">
       <h5>商品新規登録</h5>
     </div>
+    <%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
     <div class="row">
         <div  class="mx-auto">
         <table class="table table-borderless">
-         <%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
           <tbody>
             <tr>
               <th width="150">商品画像</th>
@@ -33,9 +33,10 @@
               <td><%= f.submit '新規登録', class: "btn btn-success px-4" %></td>
             </tr>
           </tbody>
-          <% end %>
         </table>
         </div>
     </div>
+    <% end %>
+
   </div>
 </main>

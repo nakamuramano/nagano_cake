@@ -4,6 +4,7 @@
       <div class="item-all">
         <div style="font-size: 30px;"><b>商品一覧</b></div><p>(全<%= @items.count %>件)</p>
       </div>
+    <div class="item-box">
      <div class="row">
       <% @item.each do |item| %>
       <div class="col-3">
@@ -19,6 +20,7 @@
 
      <div class="paginate">
       <%= paginate @item  %>
+     </div>
      </div>
   </div>
 </main>

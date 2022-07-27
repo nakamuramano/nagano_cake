@@ -66,8 +66,13 @@ footer{
   right: 150px;
 }
 
+.item-box{
+  width: 1200px;
+  position: relative;
+}
+
 .paginate {
-  margin: 40px auto;
+  margin: 40px 500px;
 }
 
 
@@ -268,7 +273,7 @@ td h4{
   margin: 20px 0;
 }
 
-.order-table{
+.orders-table{
   width: 800px;
   margin: 0 350px 0 15px;
 }
